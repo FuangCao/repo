@@ -2,7 +2,8 @@
 
 ## repo default configuration
 ##
-REPO_URL = 'https://gerrit.googlesource.com/git-repo'
+# REPO_URL = 'https://gerrit.googlesource.com/git-repo'
+REPO_URL = 'git://github.com/fuangcao/repo.git'
 REPO_REV = 'stable'
 
 # Copyright (C) 2008 Google Inc.
@@ -266,7 +267,7 @@ def _Init(args):
     dst = os.path.abspath(os.path.join(repodir, S_repo))
     _Clone(url, dst, opt.quiet)
 
-    if can_verify and not opt.no_repo_verify:
+    if False: # can_verify and not opt.no_repo_verify:
       rev = _Verify(dst, branch, opt.quiet)
     else:
       rev = 'refs/remotes/origin/%s^0' % branch
